@@ -1,0 +1,87 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://127.0.0.1:8080
+  description: Generated server url
+paths:
+  /party:
+    get:
+      tags:
+      - orange-blood-heroes-controller
+      operationId: party
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrangeHeroesPartyResponse'
+  /combat:
+    get:
+      tags:
+      - orange-blood-heroes-controller
+      operationId: combat
+      parameters:
+      - name: heroId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: combatResult
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - WIN
+          - LOSE
+      - name: combatType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - MELEE
+          - SPELL
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    OrangeBloodHero:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        health:
+          type: integer
+          format: int32
+        mana:
+          type: integer
+          format: int32
+    OrangeBloodHeroesParty:
+      type: object
+      properties:
+        heroes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrangeBloodHero'
+        morale:
+          type: integer
+          format: int32
+    OrangeHeroesPartyResponse:
+      type: object
+      properties:
+        party:
+          $ref: '#/components/schemas/OrangeBloodHeroesParty'
+        timestamp:
+          type: integer
+          format: int64

@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "fcf9fda0-cd07-427c-8049-5810091abf87",
+		"name": "CombatHero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1056905",
+		"_collection_link": "https://planetary-star-259387.postman.co/workspace/Pessoal~39733554-c7f9-43ca-bc82-591f74b301da/collection/1056905-fcf9fda0-cd07-427c-8049-5810091abf87?action=share&source=collection_link&creator=1056905"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "party",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/party",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"party"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "combat",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/combat?heroId=1&combatResult=LOSE&combatType=MELEE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"combat"
+					],
+					"query": [
+						{
+							"key": "heroId",
+							"value": "1"
+						},
+						{
+							"key": "combatResult",
+							"value": "LOSE"
+						},
+						{
+							"key": "combatType",
+							"value": "MELEE"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
